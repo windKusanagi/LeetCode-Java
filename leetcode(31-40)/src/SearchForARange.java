@@ -12,24 +12,24 @@ public class SearchForARange {
                 resl = mid;
                 break;
             }
-            if (nums[mid]>target)
+            if (nums[mid]>=target)
                 right = mid - 1;
             else
                 left = mid + 1;
         }
 
         left = 0;
-        right = 0;
+        right =  nums.length - 1 ;
         while (left <= right){
             int mid = (left+right)/2;
             if (nums[mid] == target && (mid ==nums.length-1 || nums[mid + 1]!= target)){
                 resr = mid;
                 break;
             }
-            if (nums[mid]>target)
-                right = mid;
-            else
+            if (nums[mid]<=target)
                 left = mid + 1;
+            else
+                right = mid - 1 ;
         }
 
         return new int []{resl, resr};
@@ -37,9 +37,9 @@ public class SearchForARange {
     }
 
     public static void main(String args[]){
-        int input [] = new int [] {5, 7, 7, 8, 8, 10};
+        int input [] = new int [] {5, 7, 7, 7, 8, 8, 10};
         SearchForARange solution = new SearchForARange();
-        int res[] = solution.searchRange(input, 8);
+        int res[] = solution.searchRange(input, 7);
         for (int item: res){
             System.out.print(item + "  ");
         }
