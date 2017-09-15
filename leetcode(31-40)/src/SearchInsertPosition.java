@@ -16,5 +16,6 @@ public class SearchInsertPosition {
         SearchInsertPosition solution = new SearchInsertPosition();
         int input [] = new int [] {1,3,5,6};
         System.out.print(solution.searchInsert(input, 6));
+
     }
 }
